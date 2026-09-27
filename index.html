@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Rate Card - Joki Tugas Samanah</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e6e1;
+    font-family: 'Inter', sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 720px;
+    background: #f5f3ee;
+    border: 1px solid #2a2a2a;
+    padding: 40px 45px;
+    position: relative;
+    color: #2a2a2a;
+  }
+
+  /* Corner marks */
+  .corner-tl, .corner-tr, .corner-bl, .corner-br {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+  }
+  .corner-tl { top: -1px; left: -1px; border-top: 1.5px solid #2a2a2a; border-left: 1.5px solid #2a2a2a; }
+  .corner-tr { top: -1px; right: -1px; border-top: 1.5px solid #2a2a2a; border-right: 1.5px solid #2a2a2a; }
+  .corner-bl { bottom: -1px; left: -1px; border-bottom: 1.5px solid #2a2a2a; border-left: 1.5px solid #2a2a2a; }
+  .corner-br { bottom: -1px; right: -1px; border-bottom: 1.5px solid #2a2a2a; border-right: 1.5px solid #2a2a2a; }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #6b6b6b;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #b8b5ae;
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: #4a4a4a;
+    margin-bottom: 28px;
+  }
+  .subtitle span { color: #c8553d; font-weight: 600; }
+
+  .section-title {
+    display: inline-block;
+    background: #2a2a2a;
+    color: #f5f3ee;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 14px;
+    letter-spacing: 0.3px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+  .section-title.gold {
+    background: #c9a24a;
+    color: #1a1a1a;
+  }
+  .section-title.blue {
+    background: #2b3a67;
+    color: #ffffff;
+  }
+
+  /* Big divider between Skripsi & Tesis */
+  .big-divider {
+    height: 2px;
+    background: #2a2a2a;
+    margin: 40px 0 30px;
+    position: relative;
+  }
+  .big-divider::after {
+    content: 'TESIS';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f5f3ee;
+    padding: 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #2a2a2a;
+  }
+
+  .divider {
+    height: 1px;
+    background: #d5d2ca;
+    margin-bottom: 4px;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 11px 0;
+    border-bottom: 1px solid #e0ddd6;
+    font-size: 13.5px;
+  }
+  .item:last-child { border-bottom: none; }
+  .item .left { max-width: 68%; }
+  .item .name { font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
+  .item .desc { font-size: 11px; color: #8a8a8a; line-height: 1.4; }
+  .item .price { font-weight: 700; color: #1a1a1a; white-space: nowrap; }
+
+  /* Dark blocks for paket */
+  .dark-block {
+    background: #22252f;
+    color: #f5f3ee;
+    padding: 22px 25px 25px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+  .dark-block .section-title {
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+  .dark-block .item {
+    border-bottom: 1px solid #3a3e4a;
+    color: #e8e6e1;
+    padding: 8px 0;
+  }
+  .dark-block .item .name { color: #ffffff; font-size: 13.5px; }
+  .dark-block .item .desc { color: #a0a4b0; }
+  .dark-block .item .price { color: #ffffff; }
+  .dark-block .note {
+    font-size: 11.5px;
+    color: #c8ccd6;
+    line-height: 1.6;
+    padding-top: 14px;
+    border-top: 1px solid #3a3e4a;
+    margin-top: 8px;
+  }
+
+  /* Include list */
+  .include-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #c9a24a;
+    letter-spacing: 0.5px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .include-list {
+    list-style: none;
+    font-size: 12px;
+    color: #d0d4dc;
+    line-height: 1.7;
+  }
+  .include-list li::before {
+    content: '✔ ';
+    color: #4ade80;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .include-list.dark-text { color: #4a4a4a; }
+
+  /* Highlight box */
+  .highlight-box {
+    background: #2b3a67;
+    color: #ffffff;
+    padding: 16px 22px;
+    margin-top: 22px;
+    text-align: center;
+    font-size: 12.5px;
+    line-height: 1.7;
+    font-style: italic;
+    border-radius: 6px;
+  }
+  .highlight-box strong { font-style: normal; }
+
+  /* Payment info */
+  .payment-info {
+    margin-top: 20px;
+    font-size: 12.5px;
+    color: #2a2a2a;
+    line-height: 1.9;
+  }
+  .payment-info .icon { margin-right: 6px; }
+  .payment-info .price-extra { color: #c8553d; font-weight: 700; }
+
+  .footer {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px dashed #b8b5ae;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 11.5px;
+    color: #6b6b6b;
+  }
+  .footer .left { font-weight: 600; color: #2a2a2a; font-size: 12px; }
+  .footer .right { text-align: right; line-height: 1.5; max-width: 55%; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="corner-tl"></div>
+  <div class="corner-tr"></div>
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+
+  <div class="top-bar">
+    <span>@jookey74</span>
+    <span>Est. 2024</span>
+  </div>
+
+  <h1>Pricelist Skripsi &amp; Tesis</h1>
+  <p class="subtitle">Jasa Pengerjaan Tugas, Skripsi &amp; Tesis — <span>2026 / 2027</span></p>
+
+  <!-- ============================= -->
+  <!-- BAGIAN 1 : SKRIPSI            -->
+  <!-- ============================= -->
+
+  <!-- PAKET SEMPRO -->
+  <div class="dark-block">
+    <div class="section-title gold">Paket Sempro</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 1 – 3</div></div>
+      <div class="price">Rp 850.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- PAKET SIDANG -->
+  <div class="dark-block">
+    <div class="section-title gold">Paket Sidang</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 4 – 5</div></div>
+      <div class="price">Rp 1.200.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- PAKET ALL SKRIPSI -->
+  <div class="dark-block">
+    <div class="section-title gold">Paket All Skripsi</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 1 – 5</div></div>
+      <div class="price">Rp 2.000.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- SKRIPSI PER BAB -->
+  <div class="section-title">Skripsi Per Bab</div>
+  <div class="divider"></div>
+
+  <div class="item">
+    <div class="left"><div class="name">BAB 1</div></div>
+    <div class="price">Rp 150.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 2</div></div>
+    <div class="price">Rp 250.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 3</div></div>
+    <div class="price">Rp 150.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 4</div></div>
+    <div class="price">Rp 700.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 5</div></div>
+    <div class="price">Rp 100.000</div>
+  </div>
+
+  <div class="include-title" style="color: #2a2a2a; margin-top: 16px;">Include:</div>
+  <ul class="include-list dark-text">
+    <li>Free bimbingan online</li>
+    <li>Free 3x Revisi</li>
+    <li>Jurnal</li>
+    <li>Dapus (mendeley)</li>
+    <li>Parafrase</li>
+  </ul>
+
+  <!-- HIGHLIGHT BOX SKRIPSI -->
+  <div class="highlight-box">
+    <strong>PPT Sempro : Rp 50.000</strong><br>
+    <strong>PPT Semhas : Rp 80.000</strong><br>
+    <strong>Artikel : 10k/halaman</strong><br>
+    <strong>Only Revisi : 50k–300k</strong>
+  </div>
+
+  <!-- PAYMENT INFO SKRIPSI -->
+  <div class="payment-info">
+    <div><span class="icon">💳</span>Payment sistem DP</div>
+    <div><span class="icon">📚</span>Bimbingan Offline (Jakarta) <span class="price-extra">+ Rp 350.000</span></div>
+  </div>
+
+  <!-- ============================= -->
+  <!-- PEMBATAS SKRIPSI & TESIS      -->
+  <!-- ============================= -->
+  <div class="big-divider"></div>
+
+  <!-- ============================= -->
+  <!-- BAGIAN 2 : TESIS              -->
+  <!-- ============================= -->
+
+  <!-- PAKET SEMPRO TESIS -->
+  <div class="dark-block">
+    <div class="section-title blue">Paket Sempro</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 1 – 4</div></div>
+      <div class="price">Rp 1.500.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- PAKET SIDANG TESIS -->
+  <div class="dark-block">
+    <div class="section-title blue">Paket Sidang</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 5 – 7</div></div>
+      <div class="price">Rp 2.600.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- PAKET ALL TESIS -->
+  <div class="dark-block">
+    <div class="section-title blue">Paket All Tesis</div>
+    <div class="item">
+      <div class="left"><div class="name">BAB 1 – 7</div></div>
+      <div class="price">Rp 4.000.000</div>
+    </div>
+
+    <div class="include-title">Include:</div>
+    <ul class="include-list">
+      <li>Free bimbingan online</li>
+      <li>Revisi sampai Acc</li>
+      <li>Jurnal</li>
+      <li>Dapus (mendeley)</li>
+      <li>Parafrase</li>
+      <li>Free PPT</li>
+    </ul>
+  </div>
+
+  <!-- TESIS PER BAB -->
+  <div class="section-title">Tesis Per Bab</div>
+  <div class="divider"></div>
+
+  <div class="item">
+    <div class="left"><div class="name">BAB 1</div></div>
+    <div class="price">Rp 250.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 2</div></div>
+    <div class="price">Rp 550.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 3</div></div>
+    <div class="price">Rp 100.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 4</div></div>
+    <div class="price">Rp 350.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 5</div></div>
+    <div class="price">Rp 1.200.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 6</div></div>
+    <div class="price">Rp 1.000.000</div>
+  </div>
+  <div class="item">
+    <div class="left"><div class="name">BAB 7</div></div>
+    <div class="price">Rp 100.000</div>
+  </div>
+
+  <div class="include-title" style="color: #2a2a2a; margin-top: 16px;">Include:</div>
+  <ul class="include-list dark-text">
+    <li>Free bimbingan online</li>
+    <li>Free 3x Revisi</li>
+    <li>Jurnal</li>
+    <li>Dapus (mendeley)</li>
+    <li>Parafrase</li>
+  </ul>
+
+  <!-- HIGHLIGHT BOX TESIS -->
+  <div class="highlight-box">
+    <strong>PPT Sempro : Rp 50.000</strong><br>
+    <strong>PPT Semhas : Rp 80.000</strong><br>
+    <strong>Artikel : 10k/halaman</strong><br>
+    <strong>Only Revisi : 50k–300k</strong>
+  </div>
+
+  <!-- PAYMENT INFO TESIS -->
+  <div class="payment-info">
+    <div><span class="icon">💳</span>Payment sistem DP</div>
+    <div><span class="icon">📚</span>Bimbingan Offline (Jakarta) <span class="price-extra">+ Rp 500.000</span></div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="left">@jookey74</div>
+    <div class="right">
+      Pembayaran DP 50% di awal, pelunasan sebelum file final dikirim.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
