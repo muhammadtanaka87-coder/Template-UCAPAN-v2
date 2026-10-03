@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy National Girlfriend Day 💙</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<title>Happy National Girlfriend Day 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Petit+Formal+Script&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <canvas id="sparkle-canvas"></canvas>
+
+<!-- ═══════════ MUSIC ═══════════ -->
 <div id="music-ctrl" class="collapsed">
   <button class="mbtn" id="mbtn-icon">▶</button>
   <div class="music-info">
@@ -16,7 +18,7 @@
       <div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div>
       <div class="eq-b"></div><div class="eq-b"></div>
     </div>
-    <span class="mlabel">♪ playing</span>
+    <span class="mlabel">♪ our song</span>
   </div>
   <button class="music-toggle" id="music-toggle" onclick="toggleMusicSize(event)">▲</button>
 </div>
@@ -25,49 +27,56 @@
   <source src="audio/Backstreet Boys - Shape of My Heart (Lyrics).mp3" type="audio/mp3">
 </audio>
 
+<!-- ═══════════ COUNTDOWN ═══════════ -->
 <div id="countdown-page">
   <div class="cd-bg"></div>
   <div class="cd-overlay"></div>
   <div class="cd-petals" id="cd-petals"></div>
+
   <div class="cd-content">
-    <p class="cd-eyebrow">✦ countdown to national girlfriend day ✦</p>
-    <h1 class="cd-title">Happy National<br><em style="font-size:0.65em;opacity:0.8;">Girlfriend Day</em></h1>
-    <p class="cd-sub">A little surprise is waiting for the prettiest girl. 💖</p>
+    <p class="cd-eyebrow">✦ a love letter in bloom ✦</p>
+    <h1 class="cd-title">Happy National<br><em>Girlfriend Day</em></h1>
+    <p class="cd-sub">Setiap kelopak bunga ini, ada namamu di dalamnya. 🌸</p>
 
     <div class="cd-boxes">
       <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-days">00</div></div><div class="cd-label">Hari</div></div>
-      <div class="cd-sep">:</div>
+      <div class="cd-sep">✿</div>
       <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-hours">00</div></div><div class="cd-label">Jam</div></div>
-      <div class="cd-sep">:</div>
+      <div class="cd-sep">✿</div>
       <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-mins">00</div></div><div class="cd-label">Menit</div></div>
-      <div class="cd-sep">:</div>
+      <div class="cd-sep">✿</div>
       <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-secs">00</div></div><div class="cd-label">Detik</div></div>
     </div>
 
-    <div class="cd-status" id="cd-status">Bersiaplah untuk kejutan istimewa... 💗</div>
+    <div class="cd-status" id="cd-status">Ada kejutan kecil yang lagi disiapin... 🌷</div>
+
     <button class="btn-enter locked" id="btn-enter" onclick="enterSite()">
-      <span>🔒</span><span id="btn-enter-label">Tunggu sampai waktunya</span><span>🔒</span>
+      <span>✿</span><span id="btn-enter-label">Sabar ya sayang...</span><span>✿</span>
     </button>
+
     <div class="cd-locked-hint" id="cd-locked-hint">Tersisa <span id="cd-remaining">--:--</span> lagi</div>
   </div>
 </div>
 
-<!-- PIN PAGE -->
+<!-- ═══════════ PIN PAGE ═══════════ -->
 <div id="pin-page">
   <div class="pin-bg"></div>
   <div class="pin-overlay"></div>
   <div class="pin-petals" id="pin-petals"></div>
+
   <div class="pin-content">
-    <p class="pin-eyebrow">✦ a surprise made with love ✦</p>
-    <h1 class="pin-title">Unlock Your<br><em style="font-size:0.65em;opacity:0.85;">Special Gift</em></h1>
-    <p class="pin-sub">Only my favorite girl can open this. 💖</p>
+    <p class="pin-eyebrow">✦ a garden just for you ✦</p>
+    <h1 class="pin-title">Unlock Your<br><em>Secret Garden</em></h1>
+    <p class="pin-sub">Cuma kamu yang bisa buka ini. 🌸</p>
+
     <div class="pin-dots" id="pin-dots">
       <div class="pin-dot" data-index="0"></div>
       <div class="pin-dot" data-index="1"></div>
       <div class="pin-dot" data-index="2"></div>
       <div class="pin-dot" data-index="3"></div>
     </div>
-    <p class="pin-error" id="pin-error">PIN salah, coba lagi</p>
+    <p class="pin-error" id="pin-error">PIN salah, coba lagi ya sayang</p>
+
     <div class="pin-keypad">
       <button class="pin-key" data-num="1">1</button>
       <button class="pin-key" data-num="2">2</button>
@@ -82,117 +91,152 @@
       <button class="pin-key" data-num="0">0</button>
       <button class="pin-key pin-key-ok" data-num="ok">✓</button>
     </div>
-    <p class="pin-hint">Hint: your special date 💕</p>
+
+    <p class="pin-hint">Hint: tanggal jadian kita 🌹</p>
   </div>
 </div>
 
+<!-- ═══════════ GIFT BOX ═══════════ -->
 <div id="gift-slide">
   <div class="gift-bg-glow"></div>
-  <p class="gift-eyebrow" id="gift-eyebrow">✦ happy national girlfriend day ✦</p>
+  <p class="gift-eyebrow" id="gift-eyebrow">✦ a gift, wrapped in love ✦</p>
+
   <div class="gift-wrap" id="gift-wrap" onclick="openGiftBox()">
     <div class="gift-box-container" id="gift-box-container">
       <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="boxGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0F1A30"/><stop offset="100%" stop-color="#060E1A"/></linearGradient>
-          <linearGradient id="lidGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#12284B"/><stop offset="100%" stop-color="#0F1A30"/></linearGradient>
-          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8CC1E9"/><stop offset="100%" stop-color="#438BC4"/></linearGradient>
-          <filter id="giftGlow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <linearGradient id="boxGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e8698a"/>
+            <stop offset="100%" stop-color="#a02040"/>
+          </linearGradient>
+          <linearGradient id="lidGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f28aa8"/>
+            <stop offset="100%" stop-color="#c0304a"/>
+          </linearGradient>
+          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f7c873"/>
+            <stop offset="100%" stop-color="#e4a020"/>
+          </linearGradient>
+          <filter id="giftGlow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
-        <rect x="30" y="145" width="200" height="140" rx="6" fill="url(#boxGrad)" stroke="rgba(67,138,196,0.4)" stroke-width="1.5"/>
-        <rect x="117" y="145" width="26" height="140" fill="url(#ribbonGrad)" opacity="0.7"/>
-        <rect x="30" y="205" width="200" height="18" fill="url(#ribbonGrad)" opacity="0.55"/>
-        <rect x="38" y="153" width="70" height="120" rx="4" fill="rgba(255,255,255,0.03)"/>
+
+        <rect x="30" y="145" width="200" height="140" rx="6" fill="url(#boxGrad)" stroke="rgba(255,200,220,0.4)" stroke-width="1.5"/>
+        <rect x="117" y="145" width="26" height="140" fill="url(#ribbonGrad)" opacity="0.85"/>
+        <rect x="30" y="205" width="200" height="18" fill="url(#ribbonGrad)" opacity="0.7"/>
+        <rect x="38" y="153" width="70" height="120" rx="4" fill="rgba(255,255,255,0.08)"/>
+
         <g class="gift-lid" id="gift-lid-group">
-          <rect x="22" y="118" width="216" height="38" rx="6" fill="url(#lidGrad)" stroke="rgba(67,138,196,0.4)" stroke-width="1.5"/>
-          <rect x="117" y="118" width="26" height="38" fill="url(#ribbonGrad)" opacity="0.7"/>
-          <rect x="30" y="122" width="80" height="28" rx="3" fill="rgba(255,255,255,0.04)"/>
+          <rect x="22" y="118" width="216" height="38" rx="6" fill="url(#lidGrad)" stroke="rgba(255,200,220,0.4)" stroke-width="1.5"/>
+          <rect x="117" y="118" width="26" height="38" fill="url(#ribbonGrad)" opacity="0.85"/>
+          <rect x="30" y="122" width="80" height="28" rx="3" fill="rgba(255,255,255,0.1)"/>
         </g>
+
         <g filter="url(#giftGlow)">
-          <ellipse cx="100" cy="112" rx="32" ry="18" fill="#8CC1E9" opacity="0.85" transform="rotate(-20 100 112)"/>
-          <ellipse cx="100" cy="112" rx="22" ry="12" fill="#438BC4" opacity="0.5" transform="rotate(-20 100 112)"/>
-          <ellipse cx="160" cy="112" rx="32" ry="18" fill="#8CC1E9" opacity="0.85" transform="rotate(20 160 112)"/>
-          <ellipse cx="160" cy="112" rx="22" ry="12" fill="#438BC4" opacity="0.5" transform="rotate(20 160 112)"/>
-          <circle cx="130" cy="113" r="12" fill="#8CC1E9"/>
-          <circle cx="130" cy="113" r="7" fill="#438BC4"/>
-          <circle cx="130" cy="113" r="3" fill="#FFF8E7"/>
-          <path d="M124 125 Q110 155 95 175" stroke="#438BC4" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
-          <path d="M136 125 Q150 155 165 175" stroke="#438BC4" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <ellipse cx="100" cy="112" rx="32" ry="18" fill="#f28aa8" opacity="0.9" transform="rotate(-20 100 112)"/>
+          <ellipse cx="100" cy="112" rx="22" ry="12" fill="#e8698a" opacity="0.7" transform="rotate(-20 100 112)"/>
+          <ellipse cx="160" cy="112" rx="32" ry="18" fill="#f28aa8" opacity="0.9" transform="rotate(20 160 112)"/>
+          <ellipse cx="160" cy="112" rx="22" ry="12" fill="#e8698a" opacity="0.7" transform="rotate(20 160 112)"/>
+          <circle cx="130" cy="113" r="12" fill="#ffd6e0"/>
+          <circle cx="130" cy="113" r="7" fill="#e8698a"/>
+          <circle cx="130" cy="113" r="3" fill="#f7c873"/>
         </g>
+
+        <circle cx="60" cy="220" r="2.5" fill="#ffd6e0" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="195" cy="178" r="2" fill="#f7c873" opacity="0.6">
+          <animate attributeName="opacity" values="0.6;0.1;0.6" dur="1.7s" repeatCount="indefinite"/>
+        </circle>
       </svg>
+
       <svg class="gift-sparkles" id="gift-sparkles" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
         <g id="burst-stars">
-          <text x="20" y="80" font-size="18" fill="#8CC1E9" opacity="0.9">✦</text>
-          <text x="210" y="70" font-size="22" fill="#FFF8E7" opacity="0.85">✦</text>
-          <text x="120" y="40" font-size="14" fill="#438BC4" opacity="0.9">✦</text>
-          <text x="240" y="160" font-size="16" fill="#8CC1E9" opacity="0.8">✦</text>
-          <text x="5" y="160" font-size="20" fill="#FFF8E7" opacity="0.85">✦</text>
-          <text x="80" y="20" font-size="12" fill="#438BC4" opacity="0.9">✦</text>
-          <text x="170" y="25" font-size="16" fill="#8CC1E9" opacity="0.8">✦</text>
-          <text x="240" y="240" font-size="14" fill="#FFF8E7" opacity="0.75">✦</text>
-          <text x="10" y="260" font-size="18" fill="#438BC4" opacity="0.8">✦</text>
+          <text x="20" y="80" font-size="20" fill="#f7c873" opacity="0.9">✦</text>
+          <text x="210" y="70" font-size="22" fill="#ffd6e0" opacity="0.9">✿</text>
+          <text x="120" y="40" font-size="16" fill="#e8698a" opacity="0.9">✦</text>
+          <text x="240" y="160" font-size="18" fill="#f7c873" opacity="0.85">✿</text>
+          <text x="5" y="160" font-size="20" fill="#ffd6e0" opacity="0.9">✦</text>
+          <text x="80" y="20" font-size="14" fill="#e8698a" opacity="0.9">✿</text>
+          <text x="170" y="25" font-size="16" fill="#f7c873" opacity="0.85">✦</text>
         </g>
       </svg>
     </div>
-    <p class="gift-hint" id="gift-hint">✨ Click to open your National Girlfriend Day gift ✨</p>
+    <p class="gift-hint" id="gift-hint">✨ Tap untuk buka kado dari aku ✨</p>
   </div>
 </div>
 
+<!-- ═══════════ SLIDER ═══════════ -->
 <div id="slider">
+
   <!-- QUIZ JAIL -->
   <div class="slide active" id="sq-jail">
-    <div class="orb" style="width:380px;height:380px;background:rgba(0,85,160,0.5);top:-80px;left:-80px;"></div>
-    <div class="orb" style="width:260px;height:260px;background:rgba(67,138,196,0.08);bottom:0;right:-40px;"></div>
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-100px;left:-100px;"></div>
+    <div class="orb" style="width:280px;height:280px;background:rgba(255,214,224,0.08);bottom:0;right:-60px;"></div>
+
     <div class="jail-gif-container">
       <img src="giphy3.gif" alt="Love GIF" id="jail-gif" onerror="this.style.display='none'">
     </div>
+
     <div class="love-quiz-container" id="love-quiz-container">
-      <h2 class="s2-title au" id="jail-title">Before Your Surprise...</h2>
+      <h2 class="s2-title au" id="jail-title">Sebelum Lanjut...</h2>
       <div class="love-question-card au" id="love-question-card">
-        <p class="love-question" id="love-question">do you love me</p>
+        <p class="love-question" id="love-question">Kamu sayang aku nggak? 🥺</p>
         <div class="love-btns" id="love-btns">
-          <button class="love-btn love-btn-yes" id="love-yes-btn">YES</button>
-          <button class="love-btn love-btn-no" id="love-no-btn">NO</button>
+          <button class="love-btn love-btn-yes" id="love-yes-btn">Sayang 💗</button>
+          <button class="love-btn love-btn-no" id="love-no-btn">Enggak</button>
         </div>
       </div>
     </div>
+
     <div class="love-final-screen" id="love-final-screen">
       <div class="love-final-gif"><img src="" id="love-final-gif-img" onerror="this.style.display='none'"></div>
-      <h2 class="love-final-title" id="love-final-title">💕 That's my girl!</h2>
-      <p class="love-final-sub">Now enjoy your surprise, my love. ❤️</p>
+      <h2 class="love-final-title" id="love-final-title">💕 Kan aku tau!</h2>
+      <p class="love-final-sub">Sekarang nikmatin kejutannya ya sayang 🌹</p>
     </div>
   </div>
 
   <!-- LOVE METER -->
   <div class="slide" id="sq-love">
-    <div class="orb" style="width:400px;height:400px;background:rgba(0,85,160,0.5);top:-100px;right:-100px;"></div>
-    <div class="orb" style="width:280px;height:280px;background:rgba(67,138,196,0.07);bottom:-40px;left:-60px;"></div>
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-100px;right:-100px;"></div>
+    <div class="orb" style="width:280px;height:280px;background:rgba(255,214,224,0.07);bottom:-40px;left:-60px;"></div>
+
     <div class="love-inner" id="love-inner">
       <p class="love-eyebrow au">✦ love meter ✦</p>
-      <h2 class="s2-title au">Let's Measure<br>Your Love</h2>
+      <h2 class="s2-title au">Seberapa Besar<br>Cinta Kamu?</h2>
+
       <div class="love-scene au">
         <div class="love-heart-wrap">
           <div class="love-glow" id="love-glow"></div>
           <svg viewBox="0 0 100 100" id="love-svg">
             <defs>
-              <clipPath id="heart-clip"><path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z"/></clipPath>
+              <clipPath id="heart-clip">
+                <path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z"/>
+              </clipPath>
               <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#8CC1E9"/><stop offset="55%" stop-color="#438BC4"/><stop offset="100%" stop-color="#0055A0"/>
+                <stop offset="0%" stop-color="#f28aa8"/>
+                <stop offset="55%" stop-color="#e8698a"/>
+                <stop offset="100%" stop-color="#a02040"/>
               </linearGradient>
             </defs>
-            <path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z" fill="none" stroke="rgba(67,138,196,0.35)" stroke-width="1.5"/>
+            <path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z"
+                  fill="none" stroke="rgba(232,105,138,0.35)" stroke-width="1.5"/>
             <rect id="heart-fill" x="0" y="100" width="100" height="100" fill="url(#hg)" clip-path="url(#heart-clip)"/>
           </svg>
           <div class="love-pct" id="love-pct">0%</div>
         </div>
       </div>
-      <p class="love-msg au" id="love-msg">Tekan &amp; hold to receive my love... 💖</p>
+
+      <p class="love-msg au" id="love-msg">Tekan &amp; tahan buat kirim cintamu ke aku... 💗</p>
       <button class="btn-next love-hold-btn" id="love-btn"
         onmousedown="startLove()" onmouseup="stopLove()" onmouseleave="stopLove()"
         ontouchstart="startLove();event.preventDefault()" ontouchend="stopLove()" ontouchcancel="stopLove()">
-        <span>💗</span><span>Hold to Send Love</span>
+        <span>💗</span><span>Hold Untuk Kirim Cinta</span>
       </button>
       <button class="btn-next" id="lm-continue-btn" style="display:none;margin-top:18px" onclick="if(!transitioning) goTo(2)">
-        <span>Continue</span><span>→</span>
+        <span>Lanjut</span><span>→</span>
       </button>
     </div>
   </div>
@@ -201,51 +245,55 @@
   <div class="slide" id="s1">
     <div class="s1-bg"></div><div class="s1-overlay"></div>
     <div class="s1-content">
-      <p class="s1-eyebrow">✦ happy national girlfriend day ✦</p>
-      <h1 class="s1-title">For My<br>Favorite Girl</h1>
-      <p class="s1-sub">Made with all my love, only for you.</p>
+      <p class="s1-eyebrow">✦ a love letter in bloom ✦</p>
+      <h1 class="s1-title">Untuk Kamu,<br><em>Selalu.</em></h1>
+      <p class="s1-sub">Dibuat dengan sepenuh hati, cuma buat kamu.</p>
       <div class="s1-line"></div>
-      <button class="btn-open" onclick="goTo(3)"><span>✦</span><span>Let's Begin</span><span>✦</span></button>
+      <button class="btn-open" onclick="goTo(3)"><span>✿</span><span>Mulai</span><span>✿</span></button>
     </div>
   </div>
 
-  <!-- MENU - 3 pilihan cards -->
+  <!-- MENU -->
   <div class="slide" id="s-menu">
     <div class="s1-bg"></div><div class="s1-overlay"></div><div class="s1-bg-particles"></div>
     <div class="menu-back-btn" id="menu-back-btn" onclick="goTo(2)"><span>←</span></div>
+
     <div class="menu-header">
-      <p class="menu-eyebrow">✦ choose the surprise ✦</p>
-      <h1 class="menu-title">Choose Your Little Surprise</h1>
+      <p class="menu-eyebrow">✦ pilih kejutanmu ✦</p>
+      <h1 class="menu-title">Pilih Salah Satu,<br><em>Sayang.</em></h1>
     </div>
+
     <div class="menu-items">
       <div class="menu-item mi-video" onclick="goTo(4)">
-        <img src="img/video.png" alt="Video" class="mi-icon">
+        <div class="mi-icon-emoji">🎬</div>
         <span class="mi-label">Video</span>
-        <span class="mi-sub">A little video for my favorite girl</span>
+        <span class="mi-sub">Sebuah video kecil buat kamu</span>
       </div>
       <div class="menu-item mi-photo" onclick="goTo(5)">
-        <img src="img/photo.png" alt="Photo" class="mi-icon">
-        <span class="mi-label">Photo</span>
-        <span class="mi-sub">Every beautiful memory with you</span>
+        <div class="mi-icon-emoji">📸</div>
+        <span class="mi-label">Foto</span>
+        <span class="mi-sub">Semua memori indah kita</span>
       </div>
       <div class="menu-item mi-letter" onclick="goTo(6)">
-        <img src="img/letter.png" alt="Letter" class="mi-icon">
-        <span class="mi-label">Letter</span>
-        <span class="mi-sub">A letter from my heart</span>
+        <div class="mi-icon-emoji">💌</div>
+        <span class="mi-label">Surat</span>
+        <span class="mi-sub">Sepucuk surat dari hatiku</span>
       </div>
     </div>
-    <div class="menu-footer"><p class="menu-footer-text">A little website made just to celebrate you. 💖</p></div>
+
+    <div class="menu-footer"><p class="menu-footer-text">Website kecil ini dibuat cuma buat ngerayain kamu. 🌸</p></div>
   </div>
 
   <!-- VIDEO -->
   <div class="slide" id="s2">
     <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
-    <div class="orb" style="width:380px;height:380px;background:rgba(0,85,160,0.5);top:-80px;left:-80px;"></div>
-    <div class="orb" style="width:260px;height:260px;background:rgba(67,138,196,0.08);bottom:0;right:-40px;"></div>
+    <div class="orb" style="width:380px;height:380px;background:rgba(232,105,138,0.5);top:-80px;left:-80px;"></div>
+    <div class="orb" style="width:260px;height:260px;background:rgba(255,214,224,0.08);bottom:0;right:-40px;"></div>
+
     <div class="s4-inner" id="s2-inner">
       <div class="slide-heading">
-        <h2>A Video For You</h2>
-        <p>✦ Happy National Girlfriend Day 💖 ✦</p>
+        <h2>Video Buat Kamu</h2>
+        <p>✦ Happy National Girlfriend Day 🌸 ✦</p>
       </div>
       <div class="video-container" id="video-container">
         <video id="local-player" src="video/WhatsApp Video 2026-07-24 at 15.56.02.mp4" controls autoplay loop playsinline muted></video>
@@ -258,34 +306,39 @@
     <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
     <div class="s3-inner">
       <div class="slide-heading">
-        <h2>Our Favorite Memories</h2>
-        <p>✦ every smile, every laugh, every memory ✦</p>
+        <h2>Memori Kita</h2>
+        <p>✦ tiap senyum, tiap tawa, tiap momen ✦</p>
       </div>
       <div class="masonry" id="gallery"></div>
     </div>
   </div>
 
-  <!-- WISH / LETTER -->
+  <!-- LETTER -->
   <div class="slide" id="s4">
     <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
-    <div class="orb" style="width:400px;height:400px;background:rgba(0,85,160,0.5);top:-120px;right:-100px;"></div>
-    <div class="orb" style="width:300px;height:300px;background:rgba(67,138,196,0.06);bottom:0;left:-60px;"></div>
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-120px;right:-100px;"></div>
+    <div class="orb" style="width:300px;height:300px;background:rgba(255,214,224,0.06);bottom:0;left:-60px;"></div>
+
     <div class="wishes-card">
-      <h3>A Letter For My Favorite Girl</h3>
+      <h3>Surat Buat Cewek Favoritku</h3>
       <p>
-        Happy National Girlfriend Day, my love 💙<br><br>
-        Happy National Girlfriend Day sayang akuuu Latifah Amaliny
-        semoga dikeseharian kamu, kamu selalu diberi kesehatan, dilancarkan rezekinya dan selalu didalam lindungan Allah SWT
-        semoga selalu tambah cantik ya sayang<br><br>
-        terima kasih sudah hadir didunia ini, terima kasih sudah menjadi salah satu bagian terpenting dalam hidup aku
-        terima kasih sudah selalu sabar hadapin aku, terima kasih sudah mau belajar banyak bareng aku dan terima kasih sudah selalu mau ada di samping aku<br><br>
-        semoga harapan kamu dikabulkan Allah SWT ya sayang dan semoga kita diberi umur panjang agar bisa merayakan National Girlfriend Day selanjutnya<br><br>
-        I love you so much sayangkuuuu
+        Happy National Girlfriend Day, my love 🌸<br><br>
+
+        Happy National Girlfriend Day sayang akuuu Latifah Amaliny,
+        semoga di keseharian kamu, kamu selalu diberi kesehatan, dilancarkan rezekinya, dan selalu dalam lindungan Allah SWT.
+        Semoga selalu tambah cantik ya sayang 🌹<br><br>
+
+        Terima kasih sudah hadir di dunia ini, terima kasih sudah menjadi salah satu bagian terpenting dalam hidup aku.
+        Terima kasih sudah selalu sabar hadapin aku, terima kasih sudah mau belajar banyak bareng aku, dan terima kasih sudah selalu mau ada di samping aku.<br><br>
+
+        Semoga harapan kamu dikabulkan Allah SWT ya sayang, dan semoga kita diberi umur panjang agar bisa merayakan National Girlfriend Day selanjutnya.<br><br>
+
+        I love you so much sayangkuuuu 💗
       </p>
-      <div class="wish-heart">💙</div>
+      <div class="wish-heart">🌸</div>
       <br>
       <button class="btn-next" id="btn-to-ending" style="margin-top:24px">
-        <span>One More Thing</span><span>✦</span>
+        <span>Satu Hal Lagi</span><span>✿</span>
       </button>
     </div>
   </div>
@@ -299,14 +352,15 @@
       <div class="typing-loop"><span id="tl-text"></span><span class="tl-cursor"></span></div>
       <div class="final-msg">
         <p>
-          Thank you for always being my happiness.<br>
-          I hope this little surprise makes your National Girlfriend Day a little more special.<br>
-          <span class="forever">Happy National Girlfriend Day, My Love. 💖</span>
+          Makasih ya udah jadi bahagia aku setiap hari.<br>
+          Semoga kejutan kecil ini bikin harimu makin indah.<br>
+          <span class="forever">Happy National Girlfriend Day, Sayang. 🌸</span>
         </p>
       </div>
-      <button class="btn-replay" onclick="replay()">↩ Experience It Again 💖</button>
+      <button class="btn-replay" onclick="replay()">↩ Ulang dari Awal 🌸</button>
     </div>
   </div>
+
 </div>
 
 <script src="script.js"></script>
