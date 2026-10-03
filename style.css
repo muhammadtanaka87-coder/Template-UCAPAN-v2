@@ -1724,3 +1724,229 @@ body {
 .love-hold-btn.holding::before {
   transform: scaleX(1);
 }
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION (HP & TABLET) — ditambahkan
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Touch UX (global) ─── */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+button, .menu-item, .pin-key, .love-btn, .btn-next, .btn-open {
+  touch-action: manipulation;
+}
+
+/* ─── Viewport height fix (fallback untuk browser jadul) ─── */
+#slider { height: 100dvh; }
+.s2-inner { height: 100dvh; }
+
+/* ─── Tablet (≤900px) ─── */
+@media (max-width: 900px) {
+  .masonry { columns: 3; }
+}
+
+/* ─── HP Besar / Landscape (≤700px) ─── */
+@media (max-width: 700px) {
+  /* Countdown */
+  .cd-content { padding: 0 16px; }
+  .cd-title { font-size: 32px; }
+  .cd-sub { font-size: 13px; margin-bottom: 32px; }
+  .cd-boxes { gap: 4px; margin-bottom: 32px; }
+  .cd-box { padding: 8px 10px; min-width: 48px; border-radius: 10px; }
+  .cd-num { font-size: 24px; }
+  .cd-label { font-size: 8px; letter-spacing: .2em; }
+  .cd-sep { font-size: 18px; }
+  .cd-status { font-size: 13px; }
+  .btn-enter { padding: 13px 28px; font-size: 11px; }
+
+  /* PIN */
+  .pin-content { padding: 0 16px; }
+  .pin-title { font-size: 28px; }
+  .pin-sub { font-size: 14px; margin-bottom: 26px; }
+  .pin-key { width: 60px; height: 60px; font-size: 22px; }
+  .pin-keypad { gap: 10px; }
+  .pin-dot { width: 18px; height: 18px; }
+  .pin-hint { margin-top: 24px; }
+
+  /* Gift Box */
+  .gift-box-container { width: 200px; height: 220px; }
+  .gift-eyebrow { margin-bottom: 20px; }
+  .gift-hint { margin-top: 20px; }
+
+  /* Menu */
+  .menu-header { padding: 50px 16px 20px; }
+  .menu-title { font-size: 26px; }
+  .menu-items { gap: 14px; padding: 0 12px; }
+  .menu-item { gap: 8px; }
+  .mi-icon-emoji { font-size: 40px; }
+  .mi-label { font-size: 14px; }
+  .mi-sub { font-size: 10px; }
+
+  /* Video */
+  .s4-inner { padding: 60px 16px 30px; }
+
+  /* Gallery */
+  .masonry { columns: 2; column-gap: 10px; }
+  .pi { margin-bottom: 10px; padding: 6px 6px 20px; }
+  .s3-inner { padding: 70px 14px 30px; }
+
+  /* Letter / Surat */
+  .wishes-card { padding: 24px 18px; margin: 0 14px; }
+  .wishes-card h3 { font-size: 20px; }
+  .wishes-card p { font-size: 14px; line-height: 1.8; }
+
+  /* Ending */
+  .typing-loop { font-size: 34px; }
+  .final-msg p { font-size: 14px; }
+
+  /* Music Control */
+  #music-ctrl { bottom: 14px; right: 14px; padding: 6px 10px; }
+
+  /* Quiz Jail */
+  .jail-gif-container { max-width: 240px; height: 140px; margin-bottom: 12px; }
+  .love-question { font-size: 17px; margin-bottom: 22px; }
+  .love-btn-yes, .love-btn-no { padding: 11px 26px; font-size: .82rem; letter-spacing: 2px; }
+  .love-final-title { font-size: 26px; }
+  .love-final-sub { font-size: 15px; }
+
+  /* Love Meter */
+  .love-scene { width: 150px; height: 150px; margin: 20px auto 15px; }
+  .love-pct { font-size: 18px; }
+  .love-msg { font-size: 14px; }
+}
+
+/* ─── HP Kecil (≤480px) ─── */
+@media (max-width: 480px) {
+  /* Countdown */
+  .cd-title { font-size: 26px; }
+  .cd-eyebrow, .cd-sub { font-size: 11px; }
+  .cd-sub { margin-bottom: 24px; }
+  .cd-boxes { gap: 3px; margin-bottom: 24px; }
+  .cd-box { padding: 6px 8px; min-width: 42px; border-radius: 8px; }
+  .cd-num { font-size: 20px; }
+  .cd-label { font-size: 7px; letter-spacing: .15em; }
+  .cd-sep { font-size: 14px; padding-top: 6px; }
+  .cd-status { font-size: 12px; margin-bottom: 12px; }
+  .btn-enter { padding: 12px 24px; font-size: 10px; letter-spacing: .18em; }
+  .cd-locked-hint { font-size: 9px; }
+
+  /* PIN */
+  .pin-title { font-size: 24px; }
+  .pin-sub { font-size: 13px; }
+  .pin-dots { gap: 12px; margin-bottom: 12px; }
+  .pin-key { width: 52px; height: 52px; font-size: 18px; }
+  .pin-keypad { gap: 8px; }
+  .pin-hint { font-size: 11px; margin-top: 20px; }
+
+  /* Gift Box */
+  .gift-box-container { width: 170px; height: 190px; }
+  .gift-eyebrow { font-size: 11px; letter-spacing: .3em; }
+  .gift-hint { font-size: 12px; margin-top: 16px; }
+
+  /* Menu */
+  .menu-header { padding: 40px 14px 16px; }
+  .menu-title { font-size: 22px; }
+  .menu-eyebrow { font-size: 11px; letter-spacing: .3em; }
+  .menu-items { gap: 10px; padding: 0 8px; }
+  .mi-icon-emoji { font-size: 34px; }
+  .mi-label { font-size: 12px; }
+  .mi-sub { display: none; }  /* sembunyikan sub-text biar rapi */
+  .menu-footer { padding: 20px 16px 16px; }
+  .menu-footer-text { font-size: 11px; }
+
+  /* Back button */
+  .slide-back-btn { padding: 7px 12px; font-size: 9px; top: 14px; right: 14px; }
+  .menu-back-btn { width: 38px; height: 38px; font-size: 14px; top: 16px; left: 16px; }
+
+  /* Gallery */
+  .masonry { columns: 2; column-gap: 8px; }
+
+  /* Letter */
+  .wishes-card { padding: 20px 14px; margin: 0 10px; border-radius: 14px; }
+  .wishes-card h3 { font-size: 18px; margin-bottom: 14px; }
+  .wishes-card p { font-size: 13px; line-height: 1.75; }
+  .wish-heart { font-size: 22px; }
+
+  /* Ending */
+  .typing-loop { font-size: 28px; margin-bottom: 24px; }
+  .final-msg { margin-bottom: 26px; }
+  .final-msg p { font-size: 13.5px; }
+  .final-msg .forever { font-size: 16px; }
+  .btn-replay { font-size: 10px; padding: 11px 20px; }
+
+  /* Music control */
+  #music-ctrl { bottom: 12px; right: 12px; padding: 5px 9px; }
+  .mlabel { font-size: 9px; }
+  .mbtn { width: 24px; height: 24px; font-size: 9px; }
+
+  /* Quiz Jail */
+  .jail-gif-container { max-width: 200px; height: 120px; margin-bottom: 10px; }
+  .love-question-card { padding: 16px 12px; border-radius: 16px; }
+  .love-question { font-size: 15px; margin-bottom: 18px; }
+  .love-btns { gap: 10px; min-height: 46px; }
+  .love-btn-yes, .love-btn-no { padding: 10px 22px; font-size: .78rem; letter-spacing: 1.5px; }
+  .love-final-gif { max-width: 200px; max-height: 120px; margin-bottom: 16px; }
+  .love-final-title { font-size: 22px; }
+  .love-final-sub { font-size: 13px; }
+
+  /* Love Meter */
+  .love-scene { width: 120px; height: 120px; margin: 16px auto 12px; }
+  .love-pct { font-size: 16px; bottom: -10px; }
+  .love-msg { font-size: 13px; margin-bottom: 18px; }
+  .love-eyebrow { font-size: 11px; }
+}
+
+/* ─── HP Sangat Kecil (≤360px) ─── */
+@media (max-width: 360px) {
+  .cd-boxes { gap: 2px; }
+  .cd-box { padding: 5px 6px; min-width: 36px; }
+  .cd-num { font-size: 17px; }
+  .cd-label { font-size: 6px; }
+  .cd-sep { font-size: 12px; }
+  .cd-title { font-size: 22px; }
+
+  .pin-key { width: 46px; height: 46px; font-size: 16px; }
+  .pin-keypad { gap: 6px; }
+
+  .menu-items { gap: 6px; }
+  .mi-icon-emoji { font-size: 28px; }
+  .mi-label { font-size: 11px; }
+
+  .love-scene { width: 100px; height: 100px; }
+}
+
+/* ─── Landscape HP (layar pendek) ─── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .cd-title { font-size: 26px; margin-bottom: 8px; }
+  .cd-sub { margin-bottom: 16px; font-size: 12px; }
+  .cd-boxes { margin-bottom: 16px; }
+  .cd-box { padding: 6px 10px; min-width: 44px; }
+  .cd-num { font-size: 20px; }
+  .cd-eyebrow { margin-bottom: 8px; font-size: 10px; }
+  .cd-status { margin-bottom: 8px; }
+  .btn-enter { padding: 10px 22px; font-size: 10px; }
+
+  .menu-header { padding: 20px 16px 10px; }
+  .menu-title { font-size: 22px; }
+  .menu-footer { padding: 14px; }
+
+  .pin-title { font-size: 24px; }
+  .pin-sub { margin-bottom: 14px; }
+  .pin-key { width: 46px; height: 46px; font-size: 16px; }
+  .pin-keypad { gap: 8px; }
+  .pin-hint { margin-top: 12px; font-size: 10px; }
+
+  .gift-box-container { width: 160px; height: 180px; }
+  .gift-eyebrow { margin-bottom: 14px; }
+  .gift-hint { margin-top: 12px; }
+
+  .love-scene { width: 110px; height: 110px; margin: 10px auto 8px; }
+  .love-inner { padding: 0 16px; }
+  .love-question { font-size: 15px; margin-bottom: 14px; }
+  .jail-gif-container { max-width: 180px; height: 100px; margin-bottom: 8px; }
+
+  .s4-inner { padding: 40px 16px 20px; }
+  .wishes-card { padding: 18px 16px; }
+  .typing-loop { font-size: 26px; margin-bottom: 18px; }
+  .final-msg { margin-bottom: 20px; }
+}
