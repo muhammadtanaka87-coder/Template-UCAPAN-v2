@@ -997,3 +997,14 @@ function replay() {
   updatePinDots();
   pinError.classList.remove('show');
 }
+
+// ═══════════════════════════════════════════════════════════════
+// MOBILE VIEWPORT FIX — ditambahkan
+// Menyesuaikan tinggi slider saat address bar HP muncul/hilang
+// ═══════════════════════════════════════════════════════════════
+function setVH() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+setVH();
+window.addEventListener('resize', setVH);
+window.addEventListener('orientationchange', setVH);
