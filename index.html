@@ -2,476 +2,365 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Rate Card - Joki Tugas Samanah</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: #e8e6e1;
-    font-family: 'Inter', sans-serif;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .card {
-    width: 720px;
-    background: #f5f3ee;
-    border: 1px solid #2a2a2a;
-    padding: 40px 45px;
-    position: relative;
-    color: #2a2a2a;
-  }
-
-  /* Corner marks */
-  .corner-tl, .corner-tr, .corner-bl, .corner-br {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-  }
-  .corner-tl { top: -1px; left: -1px; border-top: 1.5px solid #2a2a2a; border-left: 1.5px solid #2a2a2a; }
-  .corner-tr { top: -1px; right: -1px; border-top: 1.5px solid #2a2a2a; border-right: 1.5px solid #2a2a2a; }
-  .corner-bl { bottom: -1px; left: -1px; border-bottom: 1.5px solid #2a2a2a; border-left: 1.5px solid #2a2a2a; }
-  .corner-br { bottom: -1px; right: -1px; border-bottom: 1.5px solid #2a2a2a; border-right: 1.5px solid #2a2a2a; }
-
-  .top-bar {
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: #6b6b6b;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #b8b5ae;
-    margin-bottom: 22px;
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: #1a1a1a;
-    margin-bottom: 6px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-    color: #4a4a4a;
-    margin-bottom: 28px;
-  }
-  .subtitle span { color: #c8553d; font-weight: 600; }
-
-  .section-title {
-    display: inline-block;
-    background: #2a2a2a;
-    color: #f5f3ee;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 5px 14px;
-    letter-spacing: 0.3px;
-    margin-bottom: 12px;
-    margin-top: 24px;
-  }
-  .section-title.gold {
-    background: #c9a24a;
-    color: #1a1a1a;
-  }
-  .section-title.blue {
-    background: #2b3a67;
-    color: #ffffff;
-  }
-
-  /* Big divider between Skripsi & Tesis */
-  .big-divider {
-    height: 2px;
-    background: #2a2a2a;
-    margin: 40px 0 30px;
-    position: relative;
-  }
-  .big-divider::after {
-    content: 'TESIS';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #f5f3ee;
-    padding: 0 16px;
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    color: #2a2a2a;
-  }
-
-  .divider {
-    height: 1px;
-    background: #d5d2ca;
-    margin-bottom: 4px;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 11px 0;
-    border-bottom: 1px solid #e0ddd6;
-    font-size: 13.5px;
-  }
-  .item:last-child { border-bottom: none; }
-  .item .left { max-width: 68%; }
-  .item .name { font-weight: 500; color: #1a1a1a; margin-bottom: 2px; }
-  .item .desc { font-size: 11px; color: #8a8a8a; line-height: 1.4; }
-  .item .price { font-weight: 700; color: #1a1a1a; white-space: nowrap; }
-
-  /* Dark blocks for paket */
-  .dark-block {
-    background: #22252f;
-    color: #f5f3ee;
-    padding: 22px 25px 25px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-  }
-  .dark-block .section-title {
-    margin-top: 0;
-    margin-bottom: 14px;
-  }
-  .dark-block .item {
-    border-bottom: 1px solid #3a3e4a;
-    color: #e8e6e1;
-    padding: 8px 0;
-  }
-  .dark-block .item .name { color: #ffffff; font-size: 13.5px; }
-  .dark-block .item .desc { color: #a0a4b0; }
-  .dark-block .item .price { color: #ffffff; }
-  .dark-block .note {
-    font-size: 11.5px;
-    color: #c8ccd6;
-    line-height: 1.6;
-    padding-top: 14px;
-    border-top: 1px solid #3a3e4a;
-    margin-top: 8px;
-  }
-
-  /* Include list */
-  .include-title {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #c9a24a;
-    letter-spacing: 0.5px;
-    margin-top: 14px;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-  }
-  .include-list {
-    list-style: none;
-    font-size: 12px;
-    color: #d0d4dc;
-    line-height: 1.7;
-  }
-  .include-list li::before {
-    content: '✔ ';
-    color: #4ade80;
-    font-weight: 700;
-    margin-right: 4px;
-  }
-  .include-list.dark-text { color: #4a4a4a; }
-
-  /* Highlight box */
-  .highlight-box {
-    background: #2b3a67;
-    color: #ffffff;
-    padding: 16px 22px;
-    margin-top: 22px;
-    text-align: center;
-    font-size: 12.5px;
-    line-height: 1.7;
-    font-style: italic;
-    border-radius: 6px;
-  }
-  .highlight-box strong { font-style: normal; }
-
-  /* Payment info */
-  .payment-info {
-    margin-top: 20px;
-    font-size: 12.5px;
-    color: #2a2a2a;
-    line-height: 1.9;
-  }
-  .payment-info .icon { margin-right: 6px; }
-  .payment-info .price-extra { color: #c8553d; font-weight: 700; }
-
-  .footer {
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px dashed #b8b5ae;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    font-size: 11.5px;
-    color: #6b6b6b;
-  }
-  .footer .left { font-weight: 600; color: #2a2a2a; font-size: 12px; }
-  .footer .right { text-align: right; line-height: 1.5; max-width: 55%; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy National Girlfriend Day 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Petit+Formal+Script&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="card">
-  <div class="corner-tl"></div>
-  <div class="corner-tr"></div>
-  <div class="corner-bl"></div>
-  <div class="corner-br"></div>
-
-  <div class="top-bar">
-    <span>@jookey74</span>
-    <span>Est. 2024</span>
+<canvas id="sparkle-canvas"></canvas>
+<div id="music-ctrl" class="collapsed">
+  <button class="mbtn" id="mbtn-icon">▶</button>
+  <div class="music-info">
+    <div class="eq">
+      <div class="eq-b"></div><div class="eq-b"></div><div class="eq-b"></div>
+      <div class="eq-b"></div><div class="eq-b"></div>
+    </div>
+    <span class="mlabel">♪ our song</span>
   </div>
+  <button class="music-toggle" id="music-toggle" onclick="toggleMusicSize(event)">▲</button>
+</div>
 
-  <h1>Pricelist Skripsi &amp; Tesis</h1>
-  <p class="subtitle">Jasa Pengerjaan Tugas, Skripsi &amp; Tesis — <span>2026 / 2027</span></p>
+<audio id="bg-music" loop>
+  <source src="audio/Backstreet Boys - Shape of My Heart (Lyrics).mp3" type="audio/mp3">
+</audio>
 
-  <!-- ============================= -->
-  <!-- BAGIAN 1 : SKRIPSI            -->
-  <!-- ============================= -->
+<!-- ═══════════ COUNTDOWN ═══════════ -->
+<div id="countdown-page">
+  <div class="cd-bg"></div>
+  <div class="cd-overlay"></div>
+  <div class="cd-petals" id="cd-petals"></div>
 
-  <!-- PAKET SEMPRO -->
-  <div class="dark-block">
-    <div class="section-title gold">Paket Sempro</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 1 – 3</div></div>
-      <div class="price">Rp 850.000</div>
+  <div class="cd-content">
+    <p class="cd-eyebrow">✦ a love letter in bloom ✦</p>
+    <h1 class="cd-title">Happy National<br><em>Girlfriend Day</em></h1>
+    <p class="cd-sub">Setiap kelopak bunga ini, ada namamu di dalamnya. 🌸</p>
+
+    <div class="cd-boxes">
+      <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-days">00</div></div><div class="cd-label">Hari</div></div>
+      <div class="cd-sep">✿</div>
+      <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-hours">00</div></div><div class="cd-label">Jam</div></div>
+      <div class="cd-sep">✿</div>
+      <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-mins">00</div></div><div class="cd-label">Menit</div></div>
+      <div class="cd-sep">✿</div>
+      <div class="cd-unit"><div class="cd-box"><div class="cd-num" id="cd-secs">00</div></div><div class="cd-label">Detik</div></div>
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
-  </div>
+    <div class="cd-status" id="cd-status">Ada kejutan kecil yang lagi disiapin... 🌷</div>
 
-  <!-- PAKET SIDANG -->
-  <div class="dark-block">
-    <div class="section-title gold">Paket Sidang</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 4 – 5</div></div>
-      <div class="price">Rp 1.200.000</div>
+    <button class="btn-enter locked" id="btn-enter" onclick="enterSite()">
+      <span>✿</span><span id="btn-enter-label">Sabar ya sayang...</span><span>✿</span>
+    </button>
+
+    <div class="cd-locked-hint" id="cd-locked-hint">Tersisa <span id="cd-remaining">--:--</span> lagi</div>
+  </div>
+</div>
+
+<!-- ═══════════ PIN PAGE ═══════════ -->
+<div id="pin-page">
+  <div class="pin-bg"></div>
+  <div class="pin-overlay"></div>
+  <div class="pin-petals" id="pin-petals"></div>
+  <div class="pin-content">
+    <p class="pin-eyebrow">✦ a garden just for you ✦</p>
+    <h1 class="pin-title">Unlock Your<br><em>Secret Garden</em></h1>
+    <p class="pin-sub">Cuma kamu yang bisa buka ini. 🌸</p>
+
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot" data-index="0"></div>
+      <div class="pin-dot" data-index="1"></div>
+      <div class="pin-dot" data-index="2"></div>
+      <div class="pin-dot" data-index="3"></div>
+    </div>
+    <p class="pin-error" id="pin-error">PIN salah, coba lagi ya sayang</p>
+
+    <div class="pin-keypad">
+      <button class="pin-key" data-num="1">1</button>
+      <button class="pin-key" data-num="2">2</button>
+      <button class="pin-key" data-num="3">3</button>
+      <button class="pin-key" data-num="4">4</button>
+      <button class="pin-key" data-num="5">5</button>
+      <button class="pin-key" data-num="6">6</button>
+      <button class="pin-key" data-num="7">7</button>
+      <button class="pin-key" data-num="8">8</button>
+      <button class="pin-key" data-num="9">9</button>
+      <button class="pin-key pin-key-clear" data-num="clear">⌫</button>
+      <button class="pin-key" data-num="0">0</button>
+      <button class="pin-key pin-key-ok" data-num="ok">✓</button>
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
+    <p class="pin-hint">Hint: tanggal jadian kita 🌹</p>
   </div>
+</div>
 
-  <!-- PAKET ALL SKRIPSI -->
-  <div class="dark-block">
-    <div class="section-title gold">Paket All Skripsi</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 1 – 5</div></div>
-      <div class="price">Rp 2.000.000</div>
+<!-- ═══════════ GIFT BOX ═══════════ -->
+<div id="gift-slide">
+  <div class="gift-bg-glow"></div>
+  <p class="gift-eyebrow" id="gift-eyebrow">✦ a gift, wrapped in love ✦</p>
+
+  <div class="gift-wrap" id="gift-wrap" onclick="openGiftBox()">
+    <div class="gift-box-container" id="gift-box-container">
+      <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="boxGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#e8698a"/>
+            <stop offset="100%" stop-color="#a02040"/>
+          </linearGradient>
+          <linearGradient id="lidGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f28aa8"/>
+            <stop offset="100%" stop-color="#c0304a"/>
+          </linearGradient>
+          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f7c873"/>
+            <stop offset="100%" stop-color="#e4a020"/>
+          </linearGradient>
+          <filter id="giftGlow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <rect x="30" y="145" width="200" height="140" rx="6" fill="url(#boxGrad)" stroke="rgba(255,200,220,0.4)" stroke-width="1.5"/>
+        <rect x="117" y="145" width="26" height="140" fill="url(#ribbonGrad)" opacity="0.85"/>
+        <rect x="30" y="205" width="200" height="18" fill="url(#ribbonGrad)" opacity="0.7"/>
+        <rect x="38" y="153" width="70" height="120" rx="4" fill="rgba(255,255,255,0.08)"/>
+
+        <g class="gift-lid" id="gift-lid-group">
+          <rect x="22" y="118" width="216" height="38" rx="6" fill="url(#lidGrad)" stroke="rgba(255,200,220,0.4)" stroke-width="1.5"/>
+          <rect x="117" y="118" width="26" height="38" fill="url(#ribbonGrad)" opacity="0.85"/>
+          <rect x="30" y="122" width="80" height="28" rx="3" fill="rgba(255,255,255,0.1)"/>
+        </g>
+
+        <!-- Bunga mawar di atas -->
+        <g filter="url(#giftGlow)">
+          <ellipse cx="100" cy="112" rx="32" ry="18" fill="#f28aa8" opacity="0.9" transform="rotate(-20 100 112)"/>
+          <ellipse cx="100" cy="112" rx="22" ry="12" fill="#e8698a" opacity="0.7" transform="rotate(-20 100 112)"/>
+          <ellipse cx="160" cy="112" rx="32" ry="18" fill="#f28aa8" opacity="0.9" transform="rotate(20 160 112)"/>
+          <ellipse cx="160" cy="112" rx="22" ry="12" fill="#e8698a" opacity="0.7" transform="rotate(20 160 112)"/>
+          <circle cx="130" cy="113" r="12" fill="#ffd6e0"/>
+          <circle cx="130" cy="113" r="7" fill="#e8698a"/>
+          <circle cx="130" cy="113" r="3" fill="#f7c873"/>
+        </g>
+
+        <circle cx="60" cy="220" r="2.5" fill="#ffd6e0" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;0.1;0.7" dur="2.1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="195" cy="178" r="2" fill="#f7c873" opacity="0.6">
+          <animate attributeName="opacity" values="0.6;0.1;0.6" dur="1.7s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+
+      <svg class="gift-sparkles" id="gift-sparkles" viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+        <g id="burst-stars">
+          <text x="20" y="80" font-size="20" fill="#f7c873" opacity="0.9">✦</text>
+          <text x="210" y="70" font-size="22" fill="#ffd6e0" opacity="0.9">✿</text>
+          <text x="120" y="40" font-size="16" fill="#e8698a" opacity="0.9">✦</text>
+          <text x="240" y="160" font-size="18" fill="#f7c873" opacity="0.85">✿</text>
+          <text x="5" y="160" font-size="20" fill="#ffd6e0" opacity="0.9">✦</text>
+          <text x="80" y="20" font-size="14" fill="#e8698a" opacity="0.9">✿</text>
+          <text x="170" y="25" font-size="16" fill="#f7c873" opacity="0.85">✦</text>
+        </g>
+      </svg>
+    </div>
+    <p class="gift-hint" id="gift-hint">✨ Tap untuk buka kado dari aku ✨</p>
+  </div>
+</div>
+
+<!-- ═══════════ SLIDER ═══════════ -->
+<div id="slider">
+
+  <!-- QUIZ JAIL -->
+  <div class="slide active" id="sq-jail">
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-100px;left:-100px;"></div>
+    <div class="orb" style="width:280px;height:280px;background:rgba(255,214,224,0.08);bottom:0;right:-60px;"></div>
+
+    <div class="jail-gif-container">
+      <img src="giphy3.gif" alt="Love GIF" id="jail-gif" onerror="this.style.display='none'">
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
-  </div>
-
-  <!-- SKRIPSI PER BAB -->
-  <div class="section-title">Skripsi Per Bab</div>
-  <div class="divider"></div>
-
-  <div class="item">
-    <div class="left"><div class="name">BAB 1</div></div>
-    <div class="price">Rp 150.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 2</div></div>
-    <div class="price">Rp 250.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 3</div></div>
-    <div class="price">Rp 150.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 4</div></div>
-    <div class="price">Rp 700.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 5</div></div>
-    <div class="price">Rp 100.000</div>
-  </div>
-
-  <div class="include-title" style="color: #2a2a2a; margin-top: 16px;">Include:</div>
-  <ul class="include-list dark-text">
-    <li>Free bimbingan online</li>
-    <li>Free 3x Revisi</li>
-    <li>Jurnal</li>
-    <li>Dapus (mendeley)</li>
-    <li>Parafrase</li>
-  </ul>
-
-  <!-- HIGHLIGHT BOX SKRIPSI -->
-  <div class="highlight-box">
-    <strong>PPT Sempro : Rp 50.000</strong><br>
-    <strong>PPT Semhas : Rp 80.000</strong><br>
-    <strong>Artikel : 10k/halaman</strong><br>
-    <strong>Only Revisi : 50k–300k</strong>
-  </div>
-
-  <!-- PAYMENT INFO SKRIPSI -->
-  <div class="payment-info">
-    <div><span class="icon">💳</span>Payment sistem DP</div>
-    <div><span class="icon">📚</span>Bimbingan Offline (Jakarta) <span class="price-extra">+ Rp 350.000</span></div>
-  </div>
-
-  <!-- ============================= -->
-  <!-- PEMBATAS SKRIPSI & TESIS      -->
-  <!-- ============================= -->
-  <div class="big-divider"></div>
-
-  <!-- ============================= -->
-  <!-- BAGIAN 2 : TESIS              -->
-  <!-- ============================= -->
-
-  <!-- PAKET SEMPRO TESIS -->
-  <div class="dark-block">
-    <div class="section-title blue">Paket Sempro</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 1 – 4</div></div>
-      <div class="price">Rp 1.500.000</div>
+    <div class="love-quiz-container" id="love-quiz-container">
+      <h2 class="s2-title au" id="jail-title">Sebelum Lanjut...</h2>
+      <div class="love-question-card au" id="love-question-card">
+        <p class="love-question" id="love-question">Kamu sayang aku nggak? 🥺</p>
+        <div class="love-btns" id="love-btns">
+          <button class="love-btn love-btn-yes" id="love-yes-btn">Sayang 💗</button>
+          <button class="love-btn love-btn-no" id="love-no-btn">Enggak</button>
+        </div>
+      </div>
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
+    <div class="love-final-screen" id="love-final-screen">
+      <div class="love-final-gif"><img src="" id="love-final-gif-img" onerror="this.style.display='none'"></div>
+      <h2 class="love-final-title" id="love-final-title">💕 Kan aku tau!</h2>
+      <p class="love-final-sub">Sekarang nikmatin kejutannya ya sayang 🌹</p>
+    </div>
   </div>
 
-  <!-- PAKET SIDANG TESIS -->
-  <div class="dark-block">
-    <div class="section-title blue">Paket Sidang</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 5 – 7</div></div>
-      <div class="price">Rp 2.600.000</div>
+  <!-- LOVE METER -->
+  <div class="slide" id="sq-love">
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-100px;right:-100px;"></div>
+    <div class="orb" style="width:280px;height:280px;background:rgba(255,214,224,0.07);bottom:-40px;left:-60px;"></div>
+
+    <div class="love-inner" id="love-inner">
+      <p class="love-eyebrow au">✦ love meter ✦</p>
+      <h2 class="s2-title au">Seberapa Besar<br>Cinta Kamu?</h2>
+
+      <div class="love-scene au">
+        <div class="love-heart-wrap">
+          <div class="love-glow" id="love-glow"></div>
+          <svg viewBox="0 0 100 100" id="love-svg">
+            <defs>
+              <clipPath id="heart-clip">
+                <path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z"/>
+              </clipPath>
+              <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#f28aa8"/>
+                <stop offset="55%" stop-color="#e8698a"/>
+                <stop offset="100%" stop-color="#a02040"/>
+              </linearGradient>
+            </defs>
+            <path d="M50 88C25 65 5 50 5 30C5 15 18 5 30 5C40 5 47 12 50 18C53 12 60 5 70 5C82 5 95 15 95 30C95 50 75 65 50 88Z"
+                  fill="none" stroke="rgba(232,105,138,0.35)" stroke-width="1.5"/>
+            <rect id="heart-fill" x="0" y="100" width="100" height="100" fill="url(#hg)" clip-path="url(#heart-clip)"/>
+          </svg>
+          <div class="love-pct" id="love-pct">0%</div>
+        </div>
+      </div>
+
+      <p class="love-msg au" id="love-msg">Tekan &amp; tahan buat kirim cintamu ke aku... 💗</p>
+      <button class="btn-next love-hold-btn" id="love-btn"
+        onmousedown="startLove()" onmouseup="stopLove()" onmouseleave="stopLove()"
+        ontouchstart="startLove();event.preventDefault()" ontouchend="stopLove()" ontouchcancel="stopLove()">
+        <span>💗</span><span>Hold Untuk Kirim Cinta</span>
+      </button>
+      <button class="btn-next" id="lm-continue-btn" style="display:none;margin-top:18px" onclick="if(!transitioning) goTo(2)">
+        <span>Lanjut</span><span>→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="slide" id="s1">
+    <div class="s1-bg"></div><div class="s1-overlay"></div>
+    <div class="s1-content">
+      <p class="s1-eyebrow">✦ a love letter in bloom ✦</p>
+      <h1 class="s1-title">Untuk Kamu,<br><em>Selalu.</em></h1>
+      <p class="s1-sub">Dibuat dengan sepenuh hati, cuma buat kamu.</p>
+      <div class="s1-line"></div>
+      <button class="btn-open" onclick="goTo(3)"><span>✿</span><span>Mulai</span><span>✿</span></button>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="slide" id="s-menu">
+    <div class="s1-bg"></div><div class="s1-overlay"></div><div class="s1-bg-particles"></div>
+    <div class="menu-back-btn" id="menu-back-btn" onclick="goTo(2)"><span>←</span></div>
+
+    <div class="menu-header">
+      <p class="menu-eyebrow">✦ pilih kejutanmu ✦</p>
+      <h1 class="menu-title">Pilih Salah Satu,<br><em>Sayang.</em></h1>
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
-  </div>
-
-  <!-- PAKET ALL TESIS -->
-  <div class="dark-block">
-    <div class="section-title blue">Paket All Tesis</div>
-    <div class="item">
-      <div class="left"><div class="name">BAB 1 – 7</div></div>
-      <div class="price">Rp 4.000.000</div>
+    <div class="menu-items">
+      <div class="menu-item mi-video" onclick="goTo(4)">
+        <div class="mi-icon-emoji">🎬</div>
+        <span class="mi-label">Video</span>
+        <span class="mi-sub">Sebuah video kecil buat kamu</span>
+      </div>
+      <div class="menu-item mi-photo" onclick="goTo(5)">
+        <div class="mi-icon-emoji">📸</div>
+        <span class="mi-label">Foto</span>
+        <span class="mi-sub">Semua memori indah kita</span>
+      </div>
+      <div class="menu-item mi-letter" onclick="goTo(6)">
+        <div class="mi-icon-emoji">💌</div>
+        <span class="mi-label">Surat</span>
+        <span class="mi-sub">Sepucuk surat dari hatiku</span>
+      </div>
     </div>
 
-    <div class="include-title">Include:</div>
-    <ul class="include-list">
-      <li>Free bimbingan online</li>
-      <li>Revisi sampai Acc</li>
-      <li>Jurnal</li>
-      <li>Dapus (mendeley)</li>
-      <li>Parafrase</li>
-      <li>Free PPT</li>
-    </ul>
+    <div class="menu-footer"><p class="menu-footer-text">Website kecil ini dibuat cuma buat ngerayain kamu. 🌸</p></div>
   </div>
 
-  <!-- TESIS PER BAB -->
-  <div class="section-title">Tesis Per Bab</div>
-  <div class="divider"></div>
+  <!-- VIDEO -->
+  <div class="slide" id="s2">
+    <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
+    <div class="orb" style="width:380px;height:380px;background:rgba(232,105,138,0.5);top:-80px;left:-80px;"></div>
+    <div class="orb" style="width:260px;height:260px;background:rgba(255,214,224,0.08);bottom:0;right:-40px;"></div>
 
-  <div class="item">
-    <div class="left"><div class="name">BAB 1</div></div>
-    <div class="price">Rp 250.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 2</div></div>
-    <div class="price">Rp 550.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 3</div></div>
-    <div class="price">Rp 100.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 4</div></div>
-    <div class="price">Rp 350.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 5</div></div>
-    <div class="price">Rp 1.200.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 6</div></div>
-    <div class="price">Rp 1.000.000</div>
-  </div>
-  <div class="item">
-    <div class="left"><div class="name">BAB 7</div></div>
-    <div class="price">Rp 100.000</div>
+    <div class="s4-inner" id="s2-inner">
+      <div class="slide-heading">
+        <h2>Video Buat Kamu</h2>
+        <p>✦ Happy National Girlfriend Day 🌸 ✦</p>
+      </div>
+      <div class="video-container" id="video-container">
+        <video id="local-player" src="video/WhatsApp Video 2026-07-24 at 15.56.02.mp4" controls autoplay loop playsinline muted></video>
+      </div>
+    </div>
   </div>
 
-  <div class="include-title" style="color: #2a2a2a; margin-top: 16px;">Include:</div>
-  <ul class="include-list dark-text">
-    <li>Free bimbingan online</li>
-    <li>Free 3x Revisi</li>
-    <li>Jurnal</li>
-    <li>Dapus (mendeley)</li>
-    <li>Parafrase</li>
-  </ul>
-
-  <!-- HIGHLIGHT BOX TESIS -->
-  <div class="highlight-box">
-    <strong>PPT Sempro : Rp 50.000</strong><br>
-    <strong>PPT Semhas : Rp 80.000</strong><br>
-    <strong>Artikel : 10k/halaman</strong><br>
-    <strong>Only Revisi : 50k–300k</strong>
+  <!-- GALLERY -->
+  <div class="slide" id="s3">
+    <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
+    <div class="s3-inner">
+      <div class="slide-heading">
+        <h2>Memori Kita</h2>
+        <p>✦ tiap senyum, tiap tawa, tiap momen ✦</p>
+      </div>
+      <div class="masonry" id="gallery"></div>
+    </div>
   </div>
 
-  <!-- PAYMENT INFO TESIS -->
-  <div class="payment-info">
-    <div><span class="icon">💳</span>Payment sistem DP</div>
-    <div><span class="icon">📚</span>Bimbingan Offline (Jakarta) <span class="price-extra">+ Rp 500.000</span></div>
+  <!-- LETTER -->
+  <div class="slide" id="s4">
+    <div class="slide-back-btn" onclick="goTo(3)"><span>← Menu</span></div>
+    <div class="orb" style="width:400px;height:400px;background:rgba(232,105,138,0.5);top:-120px;right:-100px;"></div>
+    <div class="orb" style="width:300px;height:300px;background:rgba(255,214,224,0.06);bottom:0;left:-60px;"></div>
+
+    <div class="wishes-card">
+      <h3>Surat Buat Cewek Favoritku</h3>
+      <p>
+        Happy National Girlfriend Day, my love 🌸<br><br>
+
+        Happy National Girlfriend Day sayang akuuu Latifah Amaliny,
+        semoga di keseharian kamu, kamu selalu diberi kesehatan, dilancarkan rezekinya, dan selalu dalam lindungan Allah SWT.
+        Semoga selalu tambah cantik ya sayang 🌹<br><br>
+
+        Terima kasih sudah hadir di dunia ini, terima kasih sudah menjadi salah satu bagian terpenting dalam hidup aku.
+        Terima kasih sudah selalu sabar hadapin aku, terima kasih sudah mau belajar banyak bareng aku, dan terima kasih sudah selalu mau ada di samping aku.<br><br>
+
+        Semoga harapan kamu dikabulkan Allah SWT ya sayang, dan semoga kita diberi umur panjang agar bisa merayakan National Girlfriend Day selanjutnya.<br><br>
+
+        I love you so much sayangkuuuu 💗
+      </p>
+      <div class="wish-heart">🌸</div>
+      <br>
+      <button class="btn-next" id="btn-to-ending" style="margin-top:24px">
+        <span>Satu Hal Lagi</span><span>✿</span>
+      </button>
+    </div>
   </div>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="left">@jookey74</div>
-    <div class="right">
-      Pembayaran DP 50% di awal, pelunasan sebelum file final dikirim.
+  <!-- ENDING -->
+  <div class="slide" id="s5">
+    <div class="floating-hearts" id="fhearts"></div>
+    <div class="ending-glow"></div>
+    <div class="slide-back-btn ending-back" onclick="goTo(3)"><span>← Menu</span></div>
+    <div class="s5-content">
+      <div class="typing-loop"><span id="tl-text"></span><span class="tl-cursor"></span></div>
+      <div class="final-msg">
+        <p>
+          Makasih ya udah jadi bahagia aku setiap hari.<br>
+          Semoga kejutan kecil ini bikin harimu makin indah.<br>
+          <span class="forever">Happy National Girlfriend Day, Sayang. 🌸</span>
+        </p>
+      </div>
+      <button class="btn-replay" onclick="replay()">↩ Ulang dari Awal 🌸</button>
     </div>
   </div>
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
