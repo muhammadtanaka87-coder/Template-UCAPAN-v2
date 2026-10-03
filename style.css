@@ -1737,8 +1737,17 @@ button, .menu-item, .pin-key, .love-btn, .btn-next, .btn-open {
 }
 
 /* ─── Viewport height fix (fallback untuk browser jadul) ─── */
-#slider { height: 100dvh; }
-.s2-inner { height: 100dvh; }
+/* ─── Viewport height fix (multi-layer fallback) ─── */
+#slider {
+  height: 100vh;
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+.s2-inner {
+  height: 100vh;
+  height: 100dvh;
+  height: calc(var(--vh, 1vh) * 100);
+}
 
 /* ─── Tablet (≤900px) ─── */
 @media (max-width: 900px) {
